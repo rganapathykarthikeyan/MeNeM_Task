@@ -11,7 +11,7 @@ import Saitama from '../assets/saitama.jpg'
 
 import CommentBox from './commentBox'
 import ChatBox from './chatBox'
-import { Link} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
 
@@ -71,7 +71,6 @@ const Sidebar = () => {
         unreadCount: 10,
         profilePic: Saitama
     },
-
     ]
 
     return (
@@ -83,10 +82,11 @@ const Sidebar = () => {
             <div className='w-[80%] border-b border-[#363636]'>
                 {colItems.map(item => {
                     return (
-                        <Link to={item.link} key={item.id} className=' m-1 p-2 flex items-center rounded-md text-[#A5A5A5] hover:bg-[#131313]'>
+                        <NavLink to={item.link} key={item.id} className={({isActive}) => 
+                            (isActive ? ' m-1 p-2 flex items-center rounded-md text-[#2682FF] hover:bg-[#131313]': ' m-1 p-2 flex items-center rounded-md text-[#A5A5A5] hover:bg-[#131313]')}>
                             <FontAwesomeIcon icon={item.icon} className='size-5 mr-2 ' />
                             <span className='text-l'>{item.name}</span>
-                        </Link>
+                        </NavLink>
                     )
                 })}
             </div>

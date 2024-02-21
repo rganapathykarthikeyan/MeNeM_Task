@@ -40,12 +40,15 @@ const postSlice = createSlice({
     initialState,
     reducers:{
         like(state, action) {
-            const pos = state.findIndex(item => item.postId === action.payload);
-            state[pos].likedStatus = true;
+            const pos = state.posts.findIndex(item => item.postId === action.payload);
+            state.posts[pos].likedStatus = true;
+            state.posts[pos].likes++;
+            
         },
-        disLike(state, id) {
-            const pos = state.findIndex(item => item.postId === id);
-            state[pos].likedStatus = false;
+        disLike(state, action) {
+            const pos = state.posts.findIndex(item => item.postId === action.payload);
+            state.posts[pos].likedStatus = false;
+            state.posts[pos].likes--;
         }
     }
 })

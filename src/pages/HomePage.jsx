@@ -50,14 +50,14 @@ const HomePage = () => {
 
   return (
     <div className='h-[100%] flex flex-col items-center'>
-      <div className='w-[90%] flex flex-row justify-between items-center m-3 p-2 border-b border-[#363636]'>
+      <div className='w-[90%] hidden sm:flex flex-row justify-between items-center m-3 p-2 border-b border-[#363636]'>
         <div className='basis-3/4'>
         <FontAwesomeIcon icon={faPen} className='size-5 ml-5 mr-5 text-white' />
         <input placeholder='Write Something ...' className='w-[80%] bg-transparent text-white  placeholder:text-white focus:outline-none'></input>
         </div>
         <button className='basis-1/4 text-[#2682FF] border border-[#363636] p-2 rounded-3xl'>Use MeNeM AI</button>
       </div>
-      <div className='w-[90%] flex flex-row justify-evenly items-center'>
+      <div className='w-[90%] hidden sm:flex flex-row justify-evenly items-center'>
         {options.map(option => {
           return(
             <button key={option.id} onClick={option.onPress} className='flex flex-row items-center hover:bg-[#131313] rounded-lg  ml-3 mr-3 p-2 '>
@@ -67,9 +67,9 @@ const HomePage = () => {
           )
         })}
       </div>
-      <div className='w-[90%] flex flex-col'>
+      <div className='w-[100%] sm:w-[90%] flex flex-col'>
         {posts.map(post => {
-          return(<PostBox data={post}/>)
+          return(<PostBox data={post} key={post.postId} likePost={likePost} disLikePost={disLikePost}/>)
         })}
       </div>
     </div>
