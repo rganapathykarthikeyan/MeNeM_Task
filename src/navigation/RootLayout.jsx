@@ -9,7 +9,7 @@ import Footer from '../components/footer'
 
 const RootLayout = () => {
   return (
-    <div className='flex flex-col h-screen w-screen items-center'>
+    <div className='flex flex-col h-screen w-screen items-center no-scrollbar'>
         <div className=' sticky top-0  w-[100%]'>
           <Header />
         </div>
